@@ -58,7 +58,6 @@ void count_sort(int array[], int size, int exp)
 
 	if (result == NULL)
 	{
-		free(result);
 		return;
 	}
 
@@ -79,6 +78,5 @@ void count_sort(int array[], int size, int exp)
 	{
 		array[i] = result[i];
 	}
-	
 	free(result);
 }
