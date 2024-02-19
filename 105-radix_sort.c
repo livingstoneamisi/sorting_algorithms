@@ -56,6 +56,12 @@ void count_sort(int array[], int size, int exp)
 	int *result = malloc(size * sizeof(int));
 	int i, count[10] = {0};
 
+	if (result == NULL)
+	{
+		free(result);
+		return;
+	}
+
 	for (i = 0; i < size; i++)
 	{
 		count[(array[i] / exp) % 10]++;
@@ -73,4 +79,6 @@ void count_sort(int array[], int size, int exp)
 	{
 		array[i] = result[i];
 	}
+	
+	free(result);
 }
