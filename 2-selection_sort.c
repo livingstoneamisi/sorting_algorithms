@@ -15,30 +15,30 @@ void swap_ints(int *a, int *b)
 }
 
 /**
- * selection_sort - Sort an array of integers in ascending order
- *                  using the selection sort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
+ * selection_sort - uses selection sort algorithm to sort
+ * an array of integers
+ * @array: actual array.
+ * @size: array size.
  *
  * Description: Prints the array after each swap.
  */
 void selection_sort(int *array, size_t size)
 {
-	int *min;
-	size_t i, j;
+	int min, i, j;
+	int s = size;
 
-	if (array == NULL || size < 2)
+	if (array == NULL || s < 2)
 		return;
 
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < (s - 1); i++)
 	{
-		min = array + i;
-		for (j = i + 1; j < size; j++)
-			min = (array[j] < *min) ? (array + j) : min;
+		min = i;
+		for (j = (i + 1); j < s; j++)
+			min = (array[j] < array[min]) ? j : min;
 
-		if ((array + i) != min)
+		if (min != i)
 		{
-			swap_ints(array + i, min);
+			swap_ints(&array[min], &array[i]);
 			print_array(array, size);
 		}
 	}
